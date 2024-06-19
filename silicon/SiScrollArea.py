@@ -1,8 +1,8 @@
-from PyQt5.Qt import *
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5 import QtCore, QtGui, QtWidgets
+#from PySide6.Qt import *
+from PySide6.QtCore import *
+from PySide6.QtWidgets import *
+from PySide6.QtGui import *
+from PySide6 import QtCore, QtGui, QtWidgets
 import time
 import numpy
 
@@ -10,7 +10,7 @@ from . import SiAnimationObject
 from . import SiGlobal
 
 class SiScrollBar(QLabel):
-    value_change_to_parent = pyqtSignal(float)
+    value_change_to_parent = QtCore.Signal(float)
 
     def __init__(self, parent):
         super().__init__(parent)

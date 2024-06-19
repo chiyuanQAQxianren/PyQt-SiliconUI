@@ -1,6 +1,6 @@
-from PyQt5 import QtCore
-from PyQt5.QtWidgets import QLabel, QPushButton
-from PyQt5.QtSvg import QSvgWidget
+from PySide6 import QtCore
+from PySide6.QtWidgets import QLabel, QPushButton
+from PySide6.QtSvgWidgets import QSvgWidget
 
 from . import SiFont
 from . import SiStyle
@@ -27,7 +27,7 @@ class FlatButtonAnimation(SiAnimationObject.SiAnimation):
         return self.distance() == 0
 
 class ButtonHasHoldSignal(QPushButton):
-    holdStateChanged = QtCore.pyqtSignal(bool)
+    holdStateChanged = QtCore.Signal(bool)
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -52,8 +52,8 @@ class ButtonHasHoldSignal(QPushButton):
         self.holdStateChanged.emit(False)
 
 class ClickableLabel(SiLabel):
-    clicked = QtCore.pyqtSignal()
-    holdStateChanged = QtCore.pyqtSignal(bool)
+    clicked = QtCore.Signal()
+    holdStateChanged = QtCore.Signal(bool)
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -173,17 +173,21 @@ class SiButtonFlatWithLabel(SiButtonFlat):
             '''.format(colorset.TEXT_GRAD_HEX[0]))
         self.label.setAlignment(QtCore.Qt.AlignVCenter)
 
+    def setFixedHeight(self, h):
+        super().setFixedHeight(h)
+        self.label.setFixedHeight(h)
+
     def setText(self, text):
         self.label.setText(text)
         self.label.adjustSize()
-        self.resize(self.label.width() + 16 + 8, 32)
+        self.resize(self.label.width() + 16 + 8, self.height())
 
     def resizeEvent(self, event):
         super().resizeEvent(event)
         size = event.size()
         w, h = size.width(), size.height()
         self.icon.move(8, (h-16)//2)
-        self.label.move(16, 0)
+        self.label.setGeometry(16, 0, w - 16 - 8, h)
 
 class ClickableLabelForButton(ClickableLabel):
     def __init__(self, parent):
@@ -206,8 +210,8 @@ class ClickableLabelForButton(ClickableLabel):
             '''.format(alpha))
 
 class SiButton(QLabel):
-    clicked = QtCore.pyqtSignal()
-    holdStateChanged = QtCore.pyqtSignal(bool)
+    clicked = QtCore.Signal()
+    holdStateChanged = QtCore.Signal(bool)
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -277,7 +281,7 @@ class SiButton(QLabel):
         self.layer_front.setText(text)
 
 class SiButtonHoldThread(QtCore.QThread):
-    progress_changed = QtCore.pyqtSignal()
+    progress_changed = QtCore.Signal()
 
     def __init__(self, parent):
         super().__init__(parent)

@@ -1,11 +1,11 @@
-from PyQt5.Qt import *
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import *
-from PyQt5.Qt import *
-from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QLineEdit
+#from PySide6.Qt import *
+from PySide6.QtCore import *
+from PySide6.QtWidgets import *
+from PySide6.QtGui import *
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import *
+#from PySide6.Qt import *
+from PySide6.QtWidgets import QMainWindow, QApplication, QLabel, QLineEdit
 import numpy
 import time
 import os

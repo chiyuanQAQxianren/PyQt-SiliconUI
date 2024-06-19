@@ -1,9 +1,9 @@
 
-from PyQt5 import QtCore
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QLabel, QSizePolicy, QWidget, QHBoxLayout, QVBoxLayout
-from PyQt5.QtGui import QFontMetrics
-from PyQt5.QtSvg import QSvgWidget
+from PySide6 import QtCore
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QLabel, QSizePolicy, QWidget, QHBoxLayout, QVBoxLayout
+from PySide6.QtGui import QFontMetrics
+from PySide6.QtSvgWidgets import QSvgWidget
 from .SiFont import *
 from .SiButton import *
 from .SiSwitch import *
@@ -173,7 +173,7 @@ class SiOptionSourceCode(SiOptionLink):  # 源代码
     def setURL(self, url):
         self.url = url
         self.button.hint = '前往 ' + url
-        self.connect(lambda : os.system('start {}'.format(self.url)))
+        self.button.clicked.connect(lambda : os.system('start {}'.format(self.url)))
 
 class SiOptionButton(SiOption):
     def __init__(self, parent):

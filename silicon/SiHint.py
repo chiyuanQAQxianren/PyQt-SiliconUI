@@ -1,7 +1,7 @@
 
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel
-from PyQt5.QtCore import Qt, QPoint, QEvent, QTimer
-from PyQt5.QtGui import QScreen, QCursor, QFontMetrics
+from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel
+from PySide6.QtCore import Qt, QPoint, QEvent, QTimer
+from PySide6.QtGui import QScreen, QCursor, QFontMetrics
 
 import random
 
@@ -104,7 +104,7 @@ class FloatingWindow(QWidget):
         text = str(text)
         self.label.setText(text)
 
-        w = self.label.fontMetrics().width(text)
+        w = self.label.fontMetrics().horizontalAdvance(text)
 
         self.resize_animation.setTarget(w)
         self.resize_animation.try_to_start()

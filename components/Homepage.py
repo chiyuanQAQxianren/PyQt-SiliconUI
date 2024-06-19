@@ -1,8 +1,8 @@
-from PyQt5.Qt import *
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5 import QtCore, QtGui, QtWidgets
+#from PySide6.Qt import *
+from PySide6.QtCore import *
+from PySide6.QtWidgets import *
+from PySide6.QtGui import *
+from PySide6 import QtCore, QtGui, QtWidgets
 import time
 import numpy
 
@@ -222,7 +222,7 @@ class SiHomePage(SiFrame):
         self.subtitle = QLabel(self)
         self.subtitle.setGeometry(64, 72, 500, 48)
         self.subtitle.setAlignment(Qt.AlignVCenter | Qt.AlignLeft)
-        self.subtitle.setText('基于 PyQt5 的 UI 框架，灵动、优雅而轻便')
+        self.subtitle.setText('基于 PySide6 的 UI 框架，灵动、优雅而轻便')
         self.subtitle.setStyleSheet('color:#fafafa')
         self.subtitle.setFont(font_L1_bold)
 

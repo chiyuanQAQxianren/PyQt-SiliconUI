@@ -1,6 +1,6 @@
 import numpy
 import io
-from PyQt5.QtCore import QTemporaryFile, QByteArray, QIODevice
+from PySide6.QtCore import QTemporaryFile, QByteArray, QIODevice
 
 class ICON_DICT(object):
     def __init__(self, library_path, color = None):

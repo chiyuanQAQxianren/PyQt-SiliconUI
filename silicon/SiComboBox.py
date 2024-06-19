@@ -1,7 +1,7 @@
-from PyQt5 import QtCore
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import QLabel, QDialog, QPushButton
-from PyQt5.QtSvg import QSvgWidget
+from PySide6 import QtCore
+from PySide6.QtCore import *
+from PySide6.QtWidgets import QLabel, QDialog, QPushButton
+from PySide6.QtSvgWidgets import QSvgWidget
 
 from . import SiFont
 from . import SiGlobal
@@ -10,8 +10,8 @@ from .SiButton import *
 from .SiGlobal import colorset
 
 class SiComboBox(ClickableLabel):
-    valueChanged = pyqtSignal(object)
-    textChanged = pyqtSignal(str)
+    valueChanged = QtCore.Signal(object)
+    textChanged = QtCore.Signal(str)
 
     def __init__(self, parent):
         super().__init__(parent)

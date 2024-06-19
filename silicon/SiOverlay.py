@@ -1,11 +1,11 @@
-from PyQt5.Qt import *
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import *
-from PyQt5.Qt import *
-from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QLineEdit
+#from PySide6.Qt import *
+from PySide6.QtCore import *
+from PySide6.QtWidgets import *
+from PySide6.QtGui import *
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import *
+#from PySide6.Qt import *
+from PySide6.QtWidgets import QMainWindow, QApplication, QLabel, QLineEdit
 
 from .SiAnimationObject import *
 from .SiLayout import *
@@ -40,7 +40,7 @@ class OverlayShowUpAnimation(SiAnimation):
         return self.distance() == 0
 
 class Background(QLabel):
-    clicked = QtCore.pyqtSignal()
+    clicked = QtCore.Signal()
     def __init__(self, parent):
         super().__init__(parent)
         self.parent = parent

@@ -1,15 +1,15 @@
-from PyQt5 import QtCore
-from PyQt5.QtCore import QTimer
-from PyQt5.QtWidgets import QLabel
+from PySide6 import QtCore
+from PySide6.QtCore import QTimer
+from PySide6.QtWidgets import QLabel
 from . import SiFont
 import time
 
 from .SiGlobal import *
 
 class SiSwitch(QLabel):
-    clicked = QtCore.pyqtSignal()
-    stateChanged = QtCore.pyqtSignal(bool)
-    animation_refreshed = QtCore.pyqtSignal(int)
+    clicked = QtCore.Signal()
+    stateChanged = QtCore.Signal(bool)
+    animation_refreshed = QtCore.Signal(int)
 
     def __init__(self, parent):
         super().__init__(parent)

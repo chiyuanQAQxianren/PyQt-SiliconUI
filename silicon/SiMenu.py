@@ -1,8 +1,8 @@
-from PyQt5.Qt import *
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5 import QtCore, QtGui, QtWidgets
+#from PySide6.Qt import *
+from PySide6.QtCore import *
+from PySide6.QtWidgets import *
+from PySide6.QtGui import *
+from PySide6 import QtCore, QtGui, QtWidgets
 import numpy
 
 from . import SiGlobal
@@ -51,7 +51,7 @@ class PopupAnimation(SiAnimation):
 
 
 class SingleOption(QLabel):
-    clicked = pyqtSignal(list)
+    clicked = QtCore.Signal(list)
 
     def __init__(self, parent, name, value):
         super().__init__(parent)
@@ -160,8 +160,8 @@ class MenuBody(QLabel):
         self.parent.closeup()
 
 class SiMenu(QWidget):
-    valueChanged = pyqtSignal(object)
-    textChanged = pyqtSignal(str)
+    valueChanged = QtCore.Signal(object)
+    textChanged = QtCore.Signal(str)
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -230,7 +230,7 @@ class SiMenu(QWidget):
 
         margin = 24
         direction = 1
-        desktop_geo = QApplication.desktop().geometry()
+        desktop_geo = QApplication.primaryScreen().geometry()
         dw, dh = desktop_geo.width(), desktop_geo.height()
         # 宽度上，压缩到有效显示范围内
         if (margin <= x <= dw - margin - w) == False:

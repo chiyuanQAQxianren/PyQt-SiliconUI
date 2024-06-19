@@ -1,14 +1,14 @@
-from PyQt5.Qt import *
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5 import QtCore, QtGui, QtWidgets
+#from PySide6.Qt import *
+from PySide6.QtCore import *
+from PySide6.QtWidgets import *
+from PySide6.QtGui import *
+from PySide6 import QtCore, QtGui, QtWidgets
 
 from .SiFont import *
 from .SiGlobal import *
 
 class SiInputBoxLineEdit(QLineEdit):
-    focus_changed = QtCore.pyqtSignal(bool)
+    focus_changed = QtCore.Signal(bool)
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -23,12 +23,12 @@ class SiInputBoxLineEdit(QLineEdit):
         self.focus_changed.emit(False)
 
 class SiInputBox(QLabel):
-    textChanged = pyqtSignal(str)
-    textEdited = pyqtSignal(str)
-    returnPressed = pyqtSignal()
-    editingFinished = pyqtSignal()
-    selectionChanged = pyqtSignal()
-    cursorPositionChanged = pyqtSignal(int, int)
+    textChanged = QtCore.Signal(str)
+    textEdited = QtCore.Signal(str)
+    returnPressed = QtCore.Signal()
+    editingFinished = QtCore.Signal()
+    selectionChanged = QtCore.Signal()
+    cursorPositionChanged = QtCore.Signal(int, int)
 
     def __init__(self, parent):
         super().__init__(parent)

@@ -1,10 +1,10 @@
-from PyQt5 import QtCore
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QLabel, QSizePolicy, QWidget, QPushButton
-from PyQt5.Qt import *
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
+from PySide6 import QtCore
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QLabel, QSizePolicy, QWidget, QPushButton
+#from PySide6.Qt import *
+from PySide6.QtCore import *
+from PySide6.QtWidgets import *
+from PySide6.QtGui import *
 
 from .SiFont import *
 from .SiAnimationObject import *
@@ -12,8 +12,8 @@ from .SiGlobal import *
 from . import SiGlobal
 
 class SiSlider(QLabel):
-    value_change = pyqtSignal(float)
-    dragged = pyqtSignal(float)
+    value_change = QtCore.Signal(float)
+    dragged = QtCore.Signal(float)
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -89,7 +89,7 @@ class SiSlider(QLabel):
         return self.parent.geometry().width() - self.geometry().width()
 
 class SiSliderBar(QLabel):
-    valueChanged = pyqtSignal(float)
+    valueChanged = QtCore.Signal(float)
 
     def __init__(self, parent):
         super().__init__(parent)
